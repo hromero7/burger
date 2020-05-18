@@ -1,9 +1,29 @@
-<div>
+<div id="header">
 <img src="/assets/img/burger-logo.gif" alt="burger">
 <h1>Eat-Da-Burger!</h1>
 </div>
 
-<div>
+<div id="burger-list">
+    <ul>
+       
+        {{#each burger}}
+        {{#unless this.devoured}}
+        <li>{{id}}. {{burger_name}}</li>
+        <button>Devour!</button>
+        {{/unless}}
+        {{/each}}
+
+    </ul>
+    <ul>
+        {{#each burger}}
+        {{#if devoured}}
+        <li>{{id}}. {{burger_name}}</li>
+        {{/if}}
+        {{/each}}
+    </ul>
+</div>
+
+<div id="user-input">
     <p>Enter a burger you want to eat and click on submit.</p>
     <input class="burger-box" type="text-box">
     <button class="submit-btn" type="submit">Submit</button>

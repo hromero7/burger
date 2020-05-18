@@ -19,7 +19,7 @@ const orm = {
         });
     },
     insertOne: function(table, cols, vals, cb) {
-        const queryString = "INSERT INTO " + table + " (" + cols.toString(); + ") VALUES (" + printQuestionMarks(vals.length) + ") ";
+        const queryString = "INSERT INTO " + table + " (" + cols.toString(); + ")" + " VALUES (" + printQuestionMarks(vals.length) + ") ";
         connection.query(queryString, vals, function(err, result) {
             if (err) {
                 throw err;
