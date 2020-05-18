@@ -1,4 +1,16 @@
 const express = require("express");
+
+const router = express.Router();
+
 const burger = require("../models/burger");
 
-// create router and export router 
+router.get("/", function(req, res) {
+    res.render("index");
+})
+
+
+
+
+
+
+module.exports = router;
