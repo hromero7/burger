@@ -9,18 +9,23 @@ router.get("/", function(req, res) {
         const hbsObject = {
             burger: data
         };
-        console.log(hbsObject);
         res.render("index", hbsObject);
     });
 });
 
 router.post("/api/burger", function(req, res) {
-    console.log(req);
-    // burger.insertOne("burger_name", [req.body.burger_name], function(result){
-    //     res.redirect("/");
-    //     res.json(result);
-    // });
+    burger.insertOne(["burger_name"], [req.body.burger_name], function(result){
+        console.log(result);
+        res.redirect("/");
+    });
 });
+
+router.put("/api/burger/:id", function(req, res) {
+    const condition = "id = " + req.params.id;
+    burger.updateOne(["devoured = true"], condition, function(result) {
+        res.status(200).end();
+    });
+})
 
 
 

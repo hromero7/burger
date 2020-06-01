@@ -1,8 +1,10 @@
 $(document).ready(function(){
     $(".submit-btn").on("click", function(event){
         event.preventDefault();
-        // console.log("hello");
-        const newBurger = $(".burger-box").val().trim();
+        const newBurger = {
+            burger_name: $(".burger-box").val().trim()
+        }
+
         console.log(newBurger);
 
         $.ajax("/api/burger", {
@@ -11,9 +13,20 @@ $(document).ready(function(){
         }).then(function() {
             location.reload();
         });
-
-
     });
+
+    $(".devour-btn").on("click", function(event) {
+        event.preventDefault();
+        const id = $(this).val();
+        const newValue = $(this).data("newValue");
+        $.ajax("/api/burger/" + id, {
+            type: "PUT",
+            data: newValue
+        }).then(function() {
+            location.reload();
+        })
+    })
+
 });
 
 
