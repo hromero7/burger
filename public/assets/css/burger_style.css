@@ -1,12 +1,13 @@
 img {
-    width: 200px; 
-    margin-left: 43%;
+    width: 150px; 
+    margin-left: 45%;
 }
 
 #burger-list {
     display: flex;
     justify-content: center;
     align-items: center;
+    line-height: 40px;
 }
 
 #header {
@@ -19,6 +20,7 @@ img {
     display: grid;
     grid-template-columns: 1fr;
     text-align: center;
+    margin-top: 25px;
 }
 
 .burger-box {
@@ -34,7 +36,14 @@ img {
     margin-top: 20px;
     margin-left: 46%;
     border-radius: 1rem;
-    background-color: blue;
+    background-color: #001f3f;
     color: white; 
     font-weight: bold;
+}
+
+.devour-btn {
+    background-color: #3D9970;
+    color: white;
+    font-weight: bold;
+    border-radius: 1rem;
 }
