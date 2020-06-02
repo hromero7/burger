@@ -13,9 +13,11 @@ const orm = {
         const queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function(err, result) {
             if (err) {
-                throw err;
+                console.log("mysql error, ", err)
+                cb(null, err)
+
             }
-            cb(result);
+            cb(result, null);
         });
     },
     insertOne: function(table, cols, vals, cb) {

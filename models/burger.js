@@ -2,8 +2,12 @@ const orm = require("../config/orm");
 
 const burger = {
     selectAll: function(cb) {
-        orm.selectAll("burgers", function(res) {
-            cb(res);
+        orm.selectAll("burgers", function(res, err) {
+            if(err){
+                cb(null, err)
+            } else {
+                cb(res, null);
+            }
         });
     },
     insertOne: function(cols, vals, cb) {

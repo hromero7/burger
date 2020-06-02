@@ -5,7 +5,10 @@ const router = express.Router();
 const burger = require("../models/burger");
 
 router.get("/", function(req, res) {
-    burger.selectAll(function(data){
+    burger.selectAll(function(data, err){
+        if(err){
+            console.log(err)
+        }
         const hbsObject = {
             burger: data
         };
